@@ -1,0 +1,207 @@
+{
+  "mode": "UNION",
+  "originColumnName": "original_dataset",
+  "selectedColumns": [
+    "id",
+    "siret",
+    "date_creat",
+    "date_decla",
+    "date_disso",
+    "titre",
+    "objet_social1",
+    "objet_social2",
+    "adrs_codeinsee",
+    "departement",
+    "adrs_codepostal",
+    "adrs_libcommune",
+    "adrg_pays",
+    "dir_civilite",
+    "siteweb",
+    "position"
+  ],
+  "engineParams": {
+    "hive": {
+      "skipPrerunValidate": false,
+      "hiveconf": [],
+      "inheritConf": "default",
+      "addDkuUdf": false,
+      "executionEngine": "HIVESERVER2"
+    },
+    "sqlPipelineParams": {
+      "pipelineAllowMerge": true,
+      "pipelineAllowStart": true
+    },
+    "impala": {
+      "forceStreamMode": true
+    },
+    "lowerCaseSchemaIfEngineRequiresIt": true,
+    "sparkSQL": {
+      "skipPrerunValidate": false,
+      "pipelineAllowMerge": true,
+      "useGlobalMetastore": false,
+      "pipelineAllowStart": true,
+      "readParams": {
+        "mode": "AUTO",
+        "autoModeRepartitionInto": 10,
+        "map": {}
+      },
+      "overwriteOutputSchema": false,
+      "executionEngine": "SPARK_SUBMIT",
+      "sparkConfig": {
+        "inheritConf": "default",
+        "conf": []
+      }
+    }
+  },
+  "virtualInputs": [
+    {
+      "preFilter": {
+        "distinct": false,
+        "enabled": false
+      },
+      "originLabel": "dep_1-10_prepared",
+      "index": 0
+    },
+    {
+      "preFilter": {
+        "distinct": false,
+        "enabled": false
+      },
+      "originLabel": "dep_11-21-noCorse_prepared",
+      "index": 1
+    },
+    {
+      "preFilter": {
+        "distinct": false,
+        "enabled": false
+      },
+      "originLabel": "dep_22-31_prepared",
+      "index": 2
+    },
+    {
+      "preFilter": {
+        "distinct": false,
+        "enabled": false
+      },
+      "originLabel": "dep_32-52_prepared",
+      "index": 3
+    },
+    {
+      "preFilter": {
+        "distinct": false,
+        "enabled": false
+      },
+      "originLabel": "dep_53-63_prepared",
+      "index": 4
+    },
+    {
+      "preFilter": {
+        "distinct": false,
+        "enabled": false
+      },
+      "originLabel": "dep_64-74_prepared",
+      "index": 5
+    },
+    {
+      "preFilter": {
+        "distinct": false,
+        "enabled": false
+      },
+      "originLabel": "dep_75-85_prepared",
+      "index": 6
+    },
+    {
+      "preFilter": {
+        "distinct": false,
+        "enabled": false
+      },
+      "originLabel": "dep_86-98_prepared",
+      "index": 7
+    },
+    {
+      "preFilter": {
+        "distinct": false,
+        "enabled": false
+      },
+      "originLabel": "dep_971-977_prepared",
+      "index": 8
+    }
+  ],
+  "postFilter": {
+    "$status": {
+      "schema": {
+        "columns": [
+          {
+            "name": "id",
+            "type": "string"
+          },
+          {
+            "name": "siret",
+            "type": "boolean"
+          },
+          {
+            "name": "date_creat",
+            "type": "string"
+          },
+          {
+            "name": "date_decla",
+            "type": "string"
+          },
+          {
+            "name": "date_disso",
+            "type": "string"
+          },
+          {
+            "name": "titre",
+            "type": "string"
+          },
+          {
+            "name": "objet_social1",
+            "type": "string"
+          },
+          {
+            "name": "objet_social2",
+            "type": "string"
+          },
+          {
+            "name": "adrs_codeinsee",
+            "type": "string"
+          },
+          {
+            "name": "departement",
+            "type": "string"
+          },
+          {
+            "name": "adrs_codepostal",
+            "type": "string"
+          },
+          {
+            "name": "adrs_libcommune",
+            "type": "string"
+          },
+          {
+            "name": "adrg_pays",
+            "type": "string"
+          },
+          {
+            "name": "dir_civilite",
+            "type": "string"
+          },
+          {
+            "meaning": "Text",
+            "name": "siteweb",
+            "type": "boolean"
+          },
+          {
+            "name": "position",
+            "type": "string"
+          }
+        ],
+        "userModified": false
+      }
+    },
+    "distinct": false,
+    "enabled": false
+  },
+  "addOriginColumn": false
+}

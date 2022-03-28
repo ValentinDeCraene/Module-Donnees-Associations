@@ -1,0 +1,530 @@
+{
+  "columnsSelection": {
+    "mode": "ALL"
+  },
+  "explorationSampling": {
+    "_refreshTrigger": 0,
+    "selection": {
+      "filter": {
+        "distinct": false,
+        "enabled": false
+      },
+      "latestPartitionsN": 1,
+      "maxRecords": 10000,
+      "ordering": {
+        "rules": [],
+        "enabled": false
+      },
+      "withinFirstN": -1,
+      "partitionSelectionMethod": "ALL",
+      "maxStoredBytes": 104857600,
+      "targetRatio": 0.02,
+      "maxReadUncompressedBytes": -1,
+      "samplingMethod": "HEAD_SEQUENTIAL",
+      "timeout": -1
+    },
+    "autoRefreshSample": false
+  },
+  "explorationFilters": [],
+  "origin": "PREPARE_RECIPE",
+  "exploreUIParams": {
+    "autoRefresh": true
+  },
+  "steps": [
+    {
+      "preview": false,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "ColumnsSelector",
+      "params": {
+        "columns": [
+          "maj_time",
+          "groupement",
+          "nature",
+          "id_ex",
+          "rup_mi",
+          "gestion",
+          "date_publi",
+          "adrs_complement",
+          "adrs_numvoie",
+          "adrs_repetition",
+          "adrs_typevoie",
+          "adrs_libvoie",
+          "adrs_distrib",
+          "adrg_declarant",
+          "adrg_complemid",
+          "adrg_complemgeo",
+          "adrg_libvoie",
+          "adrg_achemine",
+          "adrg_distrib",
+          "adrg_codepostal",
+          "publiweb",
+          "observation",
+          "objet",
+          "titre_court"
+        ],
+        "keep": false,
+        "appliesTo": "COLUMNS"
+      },
+      "alwaysShowComment": false
+    },
+    {
+      "preview": false,
+      "name": "civilite",
+      "metaType": "GROUP",
+      "disabled": false,
+      "steps": [
+        {
+          "preview": false,
+          "metaType": "PROCESSOR",
+          "disabled": false,
+          "type": "FindReplace",
+          "params": {
+            "output": "",
+            "mapping": [
+              {
+                "from": "^PF$",
+                "to": "FEMME"
+              },
+              {
+                "from": "^PM$",
+                "to": "HOMME"
+              },
+              {
+                "from": "^SF$",
+                "to": "FEMME"
+              },
+              {
+                "from": "^MS$",
+                "to": "HOMME"
+              }
+            ],
+            "normalization": "EXACT",
+            "columns": [
+              "dir_civilite"
+            ],
+            "appliesTo": "SINGLE_COLUMN",
+            "stopAfterFirstMatch": false,
+            "matching": "PATTERN"
+          },
+          "alwaysShowComment": false
+        },
+        {
+          "preview": false,
+          "metaType": "PROCESSOR",
+          "disabled": false,
+          "type": "FindReplace",
+          "params": {
+            "output": "",
+            "mapping": [
+              {
+                "from": "^(?!.*HOMME|FEMME).*$",
+                "to": ""
+              }
+            ],
+            "normalization": "EXACT",
+            "columns": [
+              "dir_civilite"
+            ],
+            "appliesTo": "SINGLE_COLUMN",
+            "stopAfterFirstMatch": false,
+            "matching": "PATTERN"
+          },
+          "alwaysShowComment": false
+        },
+        {
+          "preview": false,
+          "metaType": "PROCESSOR",
+          "disabled": false,
+          "type": "FindReplace",
+          "params": {
+            "output": "",
+            "mapping": [
+              {
+                "from": "",
+                "to": "NON RENSEIGNE"
+              }
+            ],
+            "normalization": "EXACT",
+            "columns": [
+              "dir_civilite"
+            ],
+            "appliesTo": "SINGLE_COLUMN",
+            "stopAfterFirstMatch": false,
+            "matching": "SUBSTRING"
+          },
+          "alwaysShowComment": false
+        }
+      ],
+      "alwaysShowComment": false
+    },
+    {
+      "preview": false,
+      "name": "Departement",
+      "metaType": "GROUP",
+      "disabled": false,
+      "steps": [
+        {
+          "preview": false,
+          "metaType": "PROCESSOR",
+          "disabled": false,
+          "type": "ColumnCopier",
+          "params": {
+            "outputColumn": "departement",
+            "inputColumn": "adrs_codeinsee"
+          },
+          "alwaysShowComment": false
+        },
+        {
+          "preview": false,
+          "metaType": "PROCESSOR",
+          "disabled": false,
+          "type": "StringTransformer",
+          "params": {
+            "mode": "TRUNCATE",
+            "columns": [
+              "departement"
+            ],
+            "appliesTo": "SINGLE_COLUMN",
+            "truncate_limit": 2
+          },
+          "alwaysShowComment": false
+        }
+      ],
+      "alwaysShowComment": false
+    },
+    {
+      "preview": false,
+      "name": "Nettoyage commune",
+      "metaType": "GROUP",
+      "disabled": false,
+      "steps": [
+        {
+          "preview": false,
+          "metaType": "PROCESSOR",
+          "disabled": false,
+          "type": "StringTransformer",
+          "params": {
+            "mode": "TO_UPPER",
+            "columns": [
+              "adrs_libcommune"
+            ],
+            "appliesTo": "SINGLE_COLUMN",
+            "truncate_limit": 0
+          },
+          "alwaysShowComment": false
+        },
+        {
+          "preview": false,
+          "metaType": "PROCESSOR",
+          "disabled": false,
+          "type": "StringTransformer",
+          "params": {
+            "mode": "TRIM",
+            "columns": [
+              "adrs_libcommune"
+            ],
+            "appliesTo": "SINGLE_COLUMN",
+            "truncate_limit": 0
+          },
+          "alwaysShowComment": false
+        }
+      ],
+      "alwaysShowComment": false
+    },
+    {
+      "preview": false,
+      "name": "Nettoyage Titre",
+      "metaType": "GROUP",
+      "disabled": false,
+      "steps": [
+        {
+          "preview": false,
+          "metaType": "PROCESSOR",
+          "disabled": false,
+          "type": "FindReplace",
+          "params": {
+            "output": "",
+            "mapping": [
+              {
+                "from": ".",
+                "to": ""
+              }
+            ],
+            "normalization": "EXACT",
+            "columns": [
+              "titre"
+            ],
+            "appliesTo": "SINGLE_COLUMN",
+            "stopAfterFirstMatch": false,
+            "matching": "SUBSTRING"
+          },
+          "alwaysShowComment": false
+        },
+        {
+          "preview": false,
+          "metaType": "PROCESSOR",
+          "disabled": false,
+          "type": "StringTransformer",
+          "params": {
+            "mode": "TO_UPPER",
+            "columns": [
+              "titre"
+            ],
+            "appliesTo": "SINGLE_COLUMN",
+            "truncate_limit": 0
+          },
+          "alwaysShowComment": false
+        }
+      ],
+      "alwaysShowComment": false
+    },
+    {
+      "preview": false,
+      "name": "Site web",
+      "metaType": "GROUP",
+      "disabled": false,
+      "steps": [
+        {
+          "preview": false,
+          "metaType": "PROCESSOR",
+          "disabled": false,
+          "type": "FindReplace",
+          "params": {
+            "output": "",
+            "mapping": [
+              {
+                "from": "^.*@.*$",
+                "to": ""
+              },
+              {
+                "from": "^..*$",
+                "to": "TRUE"
+              }
+            ],
+            "normalization": "EXACT",
+            "columns": [
+              "siteweb"
+            ],
+            "appliesTo": "SINGLE_COLUMN",
+            "stopAfterFirstMatch": false,
+            "matching": "PATTERN"
+          },
+          "alwaysShowComment": false
+        },
+        {
+          "preview": false,
+          "metaType": "PROCESSOR",
+          "disabled": false,
+          "type": "FindReplace",
+          "params": {
+            "output": "",
+            "mapping": [
+              {
+                "from": "",
+                "to": "FALSE"
+              }
+            ],
+            "normalization": "EXACT",
+            "columns": [
+              "siteweb"
+            ],
+            "appliesTo": "SINGLE_COLUMN",
+            "stopAfterFirstMatch": false,
+            "matching": "PATTERN"
+          },
+          "alwaysShowComment": false
+        }
+      ],
+      "alwaysShowComment": false
+    },
+    {
+      "preview": false,
+      "name": "Replace",
+      "metaType": "GROUP",
+      "disabled": false,
+      "steps": [
+        {
+          "preview": false,
+          "metaType": "PROCESSOR",
+          "disabled": false,
+          "type": "FindReplace",
+          "params": {
+            "output": "",
+            "mapping": [
+              {
+                "from": "^A",
+                "to": "ACTIVE"
+              },
+              {
+                "from": "^S",
+                "to": "SUPPRIMEE"
+              },
+              {
+                "from": "^D",
+                "to": "DISSOLUE"
+              }
+            ],
+            "normalization": "EXACT",
+            "columns": [
+              "position"
+            ],
+            "appliesTo": "SINGLE_COLUMN",
+            "stopAfterFirstMatch": false,
+            "matching": "PATTERN"
+          },
+          "alwaysShowComment": false
+        },
+        {
+          "preview": false,
+          "metaType": "PROCESSOR",
+          "disabled": false,
+          "type": "FindReplace",
+          "params": {
+            "output": "",
+            "mapping": [
+              {
+                "from": "0001-01-01",
+                "to": ""
+              }
+            ],
+            "normalization": "EXACT",
+            "columns": [
+              "date_disso"
+            ],
+            "appliesTo": "SINGLE_COLUMN",
+            "stopAfterFirstMatch": false,
+            "matching": "SUBSTRING"
+          },
+          "alwaysShowComment": false
+        },
+        {
+          "preview": false,
+          "metaType": "PROCESSOR",
+          "disabled": false,
+          "type": "FindReplace",
+          "params": {
+            "output": "",
+            "mapping": [
+              {
+                "from": "000000",
+                "to": ""
+              }
+            ],
+            "normalization": "EXACT",
+            "columns": [
+              "objet_social2",
+              "objet_social1"
+            ],
+            "appliesTo": "COLUMNS",
+            "stopAfterFirstMatch": false,
+            "matching": "SUBSTRING"
+          },
+          "alwaysShowComment": false
+        },
+        {
+          "preview": false,
+          "metaType": "PROCESSOR",
+          "disabled": false,
+          "type": "FindReplace",
+          "params": {
+            "output": "",
+            "mapping": [
+              {
+                "from": "^..*$",
+                "to": "TRUE"
+              },
+              {
+                "from": "",
+                "to": "FALSE"
+              }
+            ],
+            "normalization": "EXACT",
+            "columns": [
+              "siret"
+            ],
+            "appliesTo": "SINGLE_COLUMN",
+            "stopAfterFirstMatch": false,
+            "matching": "PATTERN"
+          },
+          "alwaysShowComment": false
+        }
+      ],
+      "alwaysShowComment": false
+    }
+  ],
+  "maxProcessedMemTableBytes": -1,
+  "previewMode": "ALL_ROWS",
+  "vizSampling": {
+    "_refreshTrigger": 0,
+    "selection": {
+      "useMemTable": false,
+      "filter": {
+        "distinct": false,
+        "enabled": false
+      },
+      "latestPartitionsN": 1,
+      "maxRecords": -1,
+      "ordering": {
+        "rules": [],
+        "enabled": false
+      },
+      "withinFirstN": -1,
+      "partitionSelectionMethod": "ALL",
+      "targetRatio": 0.02,
+      "maxReadUncompressedBytes": -1,
+      "samplingMethod": "FULL"
+    },
+    "autoRefreshSample": false
+  },
+  "analysisColumnData": {},
+  "columnWidthsByName": {
+    "publiweb": 100,
+    "objet_social1": 113,
+    "departement": 100,
+    "adrs_distrib": 155,
+    "objet_social2": 113,
+    "titre": 300,
+    "siteweb": 157,
+    "adrs_libcommune": 176,
+    "adrs_codeinsee": 120,
+    "siret": 100,
+    "adrs_typevoie": 113,
+    "adrg_declarant": 141,
+    "adrg_pays": 100,
+    "date_publi": 120,
+    "adrg_achemine": 169,
+    "date_disso": 120,
+    "id": 100,
+    "dir_civilite": 105,
+    "adrg_complemid": 162,
+    "id_ex": 100,
+    "adrg_complemgeo": 151,
+    "rup_mi": 100,
+    "adrs_complement": 190,
+    "nature": 100,
+    "groupement": 100,
+    "observation": 300,
+    "adrg_distrib": 148,
+    "adrs_codepostal": 128,
+    "adrs_repetition": 128,
+    "objet": 300,
+    "date_decla": 120,
+    "adrs_libvoie": 197,
+    "gestion": 100,
+    "adrg_libvoie": 197,
+    "adrs_numvoie": 105,
+    "date_creat": 120,
+    "maj_time": 148,
+    "adrg_codepostal": 128,
+    "position": 100,
+    "titre_court": 281
+  },
+  "sorting": [],
+  "globalSearchQuery": "",
+  "coloring": {
+    "scheme": "MEANING_AND_STATUS",
+    "individualColumns": [],
+    "valueColoringMode": "HASH"
+  }
+}

@@ -1,0 +1,396 @@
+{
+  "exportedWithOptions": {
+    "exportUploads": false,
+    "exportManagedFS": false,
+    "exportAnalysisModels": true,
+    "exportSavedModels": true,
+    "exportManagedFolders": false,
+    "exportModelEvaluationStores": false,
+    "exportAllInputDatasets": false,
+    "exportAllDatasets": true,
+    "exportAllInputManagedFolders": false,
+    "exportGitRepository": false,
+    "exportInsightsData": false,
+    "useManualPluginsInfo": false,
+    "includedDatasetsData": [],
+    "includedSavedModels": [],
+    "includedModelEvaluationStores": [],
+    "includedManagedFolders": [],
+    "shareAllInputDatasets": false
+  },
+  "actualContent": {
+    "includedDatasets": [
+      {
+        "name": "Asso_commune_by_INSEE",
+        "type": "Filesystem",
+        "usedTransferMethod": "RAW_FILES",
+        "size": 130240
+      },
+      {
+        "name": "Asso_commune_by_INSEE_with_pop",
+        "type": "Filesystem",
+        "usedTransferMethod": "RAW_FILES",
+        "size": 458587
+      },
+      {
+        "name": "Asso_commune_by_INSEE_with_pop_without_arrondissment",
+        "type": "Filesystem",
+        "usedTransferMethod": "RAW_FILES",
+        "size": 376670
+      },
+      {
+        "name": "Asso_commune_by_INSEE_with_pop_without_arrondissment_by_CODINSEE",
+        "type": "Filesystem",
+        "usedTransferMethod": "RAW_FILES",
+        "size": 382197
+      },
+      {
+        "name": "Asso_commune_by_INSEE_with_pop_without_arrondissment_by_CODINSEE_prepared",
+        "type": "Filesystem",
+        "usedTransferMethod": "RAW_FILES",
+        "size": 376304
+      },
+      {
+        "name": "Assoc_count_by_dep_with_pop",
+        "type": "Filesystem",
+        "usedTransferMethod": "RAW_FILES",
+        "size": 1178
+      },
+      {
+        "name": "Assoc_count_by_dep_with_pop_prepared",
+        "type": "Filesystem",
+        "usedTransferMethod": "RAW_FILES",
+        "size": 856
+      },
+      {
+        "name": "Associations_RUP",
+        "type": "Filesystem",
+        "usedTransferMethod": "RAW_FILES",
+        "size": 61540
+      },
+      {
+        "name": "Associations_financees_version_finale",
+        "type": "Filesystem",
+        "usedTransferMethod": "RAW_FILES",
+        "size": 361172
+      },
+      {
+        "name": "Communes_nombreAssos_pop",
+        "type": "Filesystem",
+        "usedTransferMethod": "RAW_FILES",
+        "size": 376304
+      },
+      {
+        "name": "Departements_collectivites_nombreAsso_pop",
+        "type": "Filesystem",
+        "usedTransferMethod": "RAW_FILES",
+        "size": 1568
+      },
+      {
+        "name": "Final_Jointure_objet_social",
+        "type": "Filesystem",
+        "usedTransferMethod": "RAW_FILES",
+        "size": 18857579
+      },
+      {
+        "name": "Final_Jointure_objet_social_prepared",
+        "type": "Filesystem",
+        "usedTransferMethod": "RAW_FILES",
+        "size": 18819677
+      },
+      {
+        "name": "Final_Jointure_objet_social_prepared_joined",
+        "type": "Filesystem",
+        "usedTransferMethod": "RAW_FILES",
+        "size": 18853225
+      },
+      {
+        "name": "Final_Jointure_objet_social_prepared_joined_prepared",
+        "type": "Filesystem",
+        "usedTransferMethod": "RAW_FILES",
+        "size": 18836427
+      },
+      {
+        "name": "Final_Jointure_objet_social_prepared_joined_prepared_joined",
+        "type": "Filesystem",
+        "usedTransferMethod": "RAW_FILES",
+        "size": 18867878
+      },
+      {
+        "name": "Final_Jointure_objet_social_prepared_joined_prepared_joined_prepared",
+        "type": "Filesystem",
+        "usedTransferMethod": "RAW_FILES",
+        "size": 18903639
+      },
+      {
+        "name": "Final_Jointure_objet_social_prepared_joined_prepared_joined_prepared_joined",
+        "type": "Filesystem",
+        "usedTransferMethod": "RAW_FILES",
+        "size": 603950
+      },
+      {
+        "name": "PLF_2022_jaune_associations_11",
+        "type": "UploadedFiles",
+        "usedTransferMethod": "UPLOAD",
+        "size": 16796267
+      },
+      {
+        "name": "PLF_2022_jaune_associations_11_prepared",
+        "type": "Filesystem",
+        "usedTransferMethod": "RAW_FILES",
+        "size": 1376356
+      },
+      {
+        "name": "PLF_2022_jaune_associations_11_prepared_by_Rpertoire_national_des_associations",
+        "type": "Filesystem",
+        "usedTransferMethod": "RAW_FILES",
+        "size": 219342
+      },
+      {
+        "name": "Pop_dep_clean",
+        "type": "Filesystem",
+        "usedTransferMethod": "RAW_FILES",
+        "size": 566
+      },
+      {
+        "name": "dep_1-10",
+        "type": "UploadedFiles",
+        "usedTransferMethod": "UPLOAD",
+        "size": 80492634
+      },
+      {
+        "name": "dep_1-10_prepared",
+        "type": "Filesystem",
+        "usedTransferMethod": "RAW_FILES",
+        "size": 3937353
+      },
+      {
+        "name": "dep_11-21-noCorse",
+        "type": "UploadedFiles",
+        "usedTransferMethod": "UPLOAD",
+        "size": 110536287
+      },
+      {
+        "name": "dep_11-21-noCorse_prepared",
+        "type": "Filesystem",
+        "usedTransferMethod": "RAW_FILES",
+        "size": 5596769
+      },
+      {
+        "name": "dep_22-31",
+        "type": "UploadedFiles",
+        "usedTransferMethod": "UPLOAD",
+        "size": 115006869
+      },
+      {
+        "name": "dep_22-31_prepared",
+        "type": "Filesystem",
+        "usedTransferMethod": "RAW_FILES",
+        "size": 5840241
+      },
+      {
+        "name": "dep_32-52",
+        "type": "UploadedFiles",
+        "usedTransferMethod": "UPLOAD",
+        "size": 243701930
+      },
+      {
+        "name": "dep_32-52_prepared",
+        "type": "Filesystem",
+        "usedTransferMethod": "RAW_FILES",
+        "size": 12491992
+      },
+      {
+        "name": "dep_53-63",
+        "type": "UploadedFiles",
+        "usedTransferMethod": "UPLOAD",
+        "size": 133008614
+      },
+      {
+        "name": "dep_53-63_prepared",
+        "type": "Filesystem",
+        "usedTransferMethod": "RAW_FILES",
+        "size": 6912506
+      },
+      {
+        "name": "dep_64-74",
+        "type": "UploadedFiles",
+        "usedTransferMethod": "UPLOAD",
+        "size": 112227040
+      },
+      {
+        "name": "dep_64-74_prepared",
+        "type": "Filesystem",
+        "usedTransferMethod": "RAW_FILES",
+        "size": 5712208
+      },
+      {
+        "name": "dep_75-85",
+        "type": "UploadedFiles",
+        "usedTransferMethod": "UPLOAD",
+        "size": 200376811
+      },
+      {
+        "name": "dep_75-85_prepared",
+        "type": "Filesystem",
+        "usedTransferMethod": "RAW_FILES",
+        "size": 9730028
+      },
+      {
+        "name": "dep_86-98",
+        "type": "UploadedFiles",
+        "usedTransferMethod": "UPLOAD",
+        "size": 142933821
+      },
+      {
+        "name": "dep_86-98_prepared",
+        "type": "Filesystem",
+        "usedTransferMethod": "RAW_FILES",
+        "size": 6641228
+      },
+      {
+        "name": "dep_971-977",
+        "type": "UploadedFiles",
+        "usedTransferMethod": "UPLOAD",
+        "size": 49660535
+      },
+      {
+        "name": "dep_971-977_prepared",
+        "type": "Filesystem",
+        "usedTransferMethod": "RAW_FILES",
+        "size": 2006780
+      },
+      {
+        "name": "dep_all_stack",
+        "type": "Filesystem",
+        "usedTransferMethod": "RAW_FILES",
+        "size": 58831043
+      },
+      {
+        "name": "dep_all_stack_by_departement",
+        "type": "Filesystem",
+        "usedTransferMethod": "RAW_FILES",
+        "size": 988
+      },
+      {
+        "name": "dep_all_stack_joined",
+        "type": "Filesystem",
+        "usedTransferMethod": "RAW_FILES",
+        "size": 67092634
+      },
+      {
+        "name": "dep_all_stack_joined_prepared",
+        "type": "Filesystem",
+        "usedTransferMethod": "RAW_FILES",
+        "size": 67546856
+      },
+      {
+        "name": "donnees_collectivites_departement_prepared_stacked",
+        "type": "Filesystem",
+        "usedTransferMethod": "RAW_FILES",
+        "size": 1267
+      },
+      {
+        "name": "donnees_collectivites_departement_prepared_stacked_by_CODDEP",
+        "type": "Filesystem",
+        "usedTransferMethod": "RAW_FILES",
+        "size": 613
+      },
+      {
+        "name": "donnees_collectivites_departement_prepared_stacked_joined",
+        "type": "Filesystem",
+        "usedTransferMethod": "RAW_FILES",
+        "size": 1568
+      },
+      {
+        "name": "donnees_collectivites_outre_mer",
+        "type": "UploadedFiles",
+        "usedTransferMethod": "UPLOAD",
+        "size": 274
+      },
+      {
+        "name": "donnees_collectivites_outre_mer_prepared",
+        "type": "Filesystem",
+        "usedTransferMethod": "RAW_FILES",
+        "size": 103
+      },
+      {
+        "name": "donnees_communes",
+        "type": "UploadedFiles",
+        "usedTransferMethod": "UPLOAD",
+        "size": 1963888
+      },
+      {
+        "name": "donnees_communes_prepared",
+        "type": "Filesystem",
+        "usedTransferMethod": "RAW_FILES",
+        "size": 351736
+      },
+      {
+        "name": "donnees_departements",
+        "type": "UploadedFiles",
+        "usedTransferMethod": "UPLOAD",
+        "size": 5752
+      },
+      {
+        "name": "donnees_departements_prepared",
+        "type": "Filesystem",
+        "usedTransferMethod": "RAW_FILES",
+        "size": 1212
+      },
+      {
+        "name": "liste_des_arup_au_1er_avril_2021_1_",
+        "type": "UploadedFiles",
+        "usedTransferMethod": "UPLOAD",
+        "size": 594192
+      },
+      {
+        "name": "liste_des_arup_au_1er_avril_2021_1__prepared",
+        "type": "Filesystem",
+        "usedTransferMethod": "RAW_FILES",
+        "size": 35031
+      },
+      {
+        "name": "rna_associations_nomenclature_waldec",
+        "type": "UploadedFiles",
+        "usedTransferMethod": "UPLOAD",
+        "size": 28920
+      }
+    ],
+    "includedSavedModels": [],
+    "includedManagedFolders": [],
+    "includedModelEvaluationStores": [],
+    "allAnalysisData": true,
+    "insightsData": false
+  },
+  "originalProjectKey": "ProjetAssociationsFinal",
+  "manifestVersion": 3,
+  "generatedWithDSSVersion": "10.0.2",
+  "generatedWithDSSConfVersion": "10000",
+  "exportedWithPlugins": [
+    {
+      "pluginId": "local-r-dev-setup",
+      "version": "1.0.0"
+    },
+    {
+      "pluginId": "builtin-macros",
+      "version": "1.0.0"
+    },
+    {
+      "pluginId": "colorbrewer-palettes",
+      "version": "0.0.1"
+    },
+    {
+      "pluginId": "k8s-metrics-utils",
+      "version": "1.0.0"
+    }
+  ],
+  "requiredConnections": {
+    "filesystem_managed": {
+      "name": "filesystem_managed",
+      "type": "Filesystem"
+    }
+  },
+  "usedCodeEnvRefs": [],
+  "hasPartitionedDataset": false
+}

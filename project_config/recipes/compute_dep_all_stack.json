@@ -1,0 +1,84 @@
+{
+  "type": "vstack",
+  "neverRecomputeExistingPartitions": false,
+  "optionalDependencies": false,
+  "customMeta": {
+    "kv": {}
+  },
+  "redispatchPartitioning": false,
+  "maxRunningActivities": 0,
+  "variables": {},
+  "dkuProperties": [],
+  "inputs": {
+    "main": {
+      "items": [
+        {
+          "ref": "dep_1-10_prepared",
+          "deps": []
+        },
+        {
+          "ref": "dep_11-21-noCorse_prepared",
+          "deps": []
+        },
+        {
+          "ref": "dep_22-31_prepared",
+          "deps": []
+        },
+        {
+          "ref": "dep_32-52_prepared",
+          "deps": []
+        },
+        {
+          "ref": "dep_53-63_prepared",
+          "deps": []
+        },
+        {
+          "ref": "dep_64-74_prepared",
+          "deps": []
+        },
+        {
+          "ref": "dep_75-85_prepared",
+          "deps": []
+        },
+        {
+          "ref": "dep_86-98_prepared",
+          "deps": []
+        },
+        {
+          "ref": "dep_971-977_prepared",
+          "deps": []
+        }
+      ]
+    }
+  },
+  "outputs": {
+    "main": {
+      "items": [
+        {
+          "ref": "dep_all_stack",
+          "appendMode": false
+        }
+      ]
+    }
+  },
+  "labels": [],
+  "versionTag": {
+    "versionNumber": 2,
+    "lastModifiedBy": {
+      "login": "admin"
+    },
+    "lastModifiedOn": 1646925273757
+  },
+  "creationTag": {
+    "versionNumber": 0,
+    "lastModifiedBy": {
+      "login": "admin"
+    },
+    "lastModifiedOn": 1646841399153
+  },
+  "tags": [],
+  "customFields": {},
+  "checklists": {
+    "checklists": []
+  }
+}

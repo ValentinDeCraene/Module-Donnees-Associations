@@ -1,0 +1,214 @@
+{
+  "columnsSelection": {
+    "mode": "ALL"
+  },
+  "explorationSampling": {
+    "_refreshTrigger": 3,
+    "selection": {
+      "filter": {
+        "uiData": {
+          "mode": "\u0026\u0026",
+          "conditions": [
+            {
+              "input": "id",
+              "col": "siret",
+              "num": 0.0,
+              "operator": "contains"
+            }
+          ]
+        },
+        "distinct": false,
+        "enabled": false
+      },
+      "latestPartitionsN": 1,
+      "maxRecords": 40000,
+      "ordering": {
+        "rules": [],
+        "enabled": false
+      },
+      "withinFirstN": -1,
+      "partitionSelectionMethod": "ALL",
+      "maxStoredBytes": 314572800,
+      "targetRatio": 0.02,
+      "maxReadUncompressedBytes": -1,
+      "samplingMethod": "HEAD_SEQUENTIAL",
+      "timeout": -1
+    },
+    "autoRefreshSample": false
+  },
+  "explorationFilters": [],
+  "origin": "PREPARE_RECIPE",
+  "exploreUIParams": {
+    "autoRefresh": true
+  },
+  "steps": [
+    {
+      "preview": false,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "ColumnsSelector",
+      "params": {
+        "columns": [
+          "NUMERO_RNA",
+          "NOM"
+        ],
+        "keep": false,
+        "appliesTo": "COLUMNS"
+      },
+      "alwaysShowComment": false
+    },
+    {
+      "preview": false,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "ColumnsConcat",
+      "params": {
+        "outputColumn": "DATE_RUP",
+        "columns": [
+          "DATE_RECONNAISSANCE_UTILITE_PUBLIQUE_1",
+          "DATE_RECONNAISSANCE_UTILITE_PUBLIQUE"
+        ],
+        "join": ""
+      },
+      "alwaysShowComment": false
+    },
+    {
+      "preview": false,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "ColumnsSelector",
+      "params": {
+        "columns": [
+          "DATE_RECONNAISSANCE_UTILITE_PUBLIQUE",
+          "DATE_RECONNAISSANCE_UTILITE_PUBLIQUE_1"
+        ],
+        "keep": false,
+        "appliesTo": "COLUMNS"
+      },
+      "alwaysShowComment": false
+    },
+    {
+      "preview": false,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "StringTransformer",
+      "params": {
+        "mode": "TRUNCATE",
+        "columns": [
+          "DATE_RUP"
+        ],
+        "appliesTo": "SINGLE_COLUMN",
+        "truncate_limit": 10
+      },
+      "alwaysShowComment": false
+    },
+    {
+      "preview": false,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "ColumnCopier",
+      "params": {
+        "outputColumn": "RUP",
+        "inputColumn": "DATE_RUP"
+      },
+      "alwaysShowComment": false
+    },
+    {
+      "preview": true,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "FindReplace",
+      "params": {
+        "output": "RUP",
+        "mapping": [
+          {
+            "from": "([0-9]|\\/){10}",
+            "to": "true"
+          },
+          {
+            "from": "",
+            "to": "false"
+          }
+        ],
+        "normalization": "EXACT",
+        "columns": [
+          "RUP"
+        ],
+        "appliesTo": "SINGLE_COLUMN",
+        "stopAfterFirstMatch": false,
+        "matching": "PATTERN"
+      },
+      "alwaysShowComment": false
+    }
+  ],
+  "maxProcessedMemTableBytes": -1,
+  "previewMode": "ALL_ROWS",
+  "vizSampling": {
+    "_refreshTrigger": 0,
+    "selection": {
+      "useMemTable": false,
+      "filter": {
+        "distinct": false,
+        "enabled": false
+      },
+      "latestPartitionsN": 1,
+      "maxRecords": -1,
+      "ordering": {
+        "rules": [],
+        "enabled": false
+      },
+      "withinFirstN": -1,
+      "partitionSelectionMethod": "ALL",
+      "targetRatio": 0.02,
+      "maxReadUncompressedBytes": -1,
+      "samplingMethod": "FULL"
+    },
+    "autoRefreshSample": false
+  },
+  "analysisColumnData": {
+    "departement": {
+      "meaning": "Text"
+    },
+    "siteweb": {
+      "meaning": "Text"
+    },
+    "adrs_codeinsee": {
+      "meaning": "Text"
+    }
+  },
+  "columnWidthsByName": {
+    "objet_social1": 113,
+    "departement": 100,
+    "objet_social2": 113,
+    "titre": 300,
+    "siteweb": 100,
+    "adrs_libcommune": 211,
+    "adrs_codeinsee": 120,
+    "DATE_RUP": 100,
+    "Sous_theme_asso_2": 300,
+    "DATE_RECONNAISSANCE_UTILITE_PUBLIQUE_1": 300,
+    "siret": 100,
+    "Sous_theme_asso_1": 300,
+    "adrg_pays": 113,
+    "date_disso": 100,
+    "id": 100,
+    "dir_civilite": 105,
+    "adrs_codepostal": 128,
+    "RUP": 100,
+    "NOM": 176,
+    "date_decla": 120,
+    "Theme_asso_2": 300,
+    "Theme_asso_1": 300,
+    "NUMERO_RNA": 100,
+    "DATE_RECONNAISSANCE_UTILITE_PUBLIQUE": 285,
+    "date_creat": 120,
+    "position": 106
+  },
+  "sorting": [],
+  "globalSearchQuery": "",
+  "coloring": {
+    "scheme": "MEANING_AND_STATUS",
+    "individualColumns": [],
+    "valueColoringMode": "HASH"
+  }
+}

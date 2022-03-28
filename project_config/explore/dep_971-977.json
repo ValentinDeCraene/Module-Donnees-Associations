@@ -1,0 +1,109 @@
+{
+  "script": {
+    "steps": [],
+    "maxProcessedMemTableBytes": -1,
+    "columnsSelection": {
+      "mode": "ALL"
+    },
+    "columnWidthsByName": {
+      "id": 100,
+      "id_ex": 100,
+      "siret": 100,
+      "rup_mi": 100,
+      "gestion": 100,
+      "date_creat": 120,
+      "date_decla": 120,
+      "date_publi": 120,
+      "date_disso": 120,
+      "nature": 100,
+      "groupement": 100,
+      "titre": 300,
+      "titre_court": 204,
+      "objet": 300,
+      "objet_social1": 113,
+      "objet_social2": 113,
+      "adrs_complement": 197,
+      "adrs_numvoie": 105,
+      "adrs_repetition": 128,
+      "adrs_typevoie": 113,
+      "adrs_libvoie": 211,
+      "adrs_distrib": 162,
+      "adrs_codeinsee": 120,
+      "adrs_codepostal": 128,
+      "adrs_libcommune": 134,
+      "adrg_declarant": 148,
+      "adrg_complemid": 169,
+      "adrg_complemgeo": 155,
+      "adrg_libvoie": 281,
+      "adrg_distrib": 155,
+      "adrg_codepostal": 128,
+      "adrg_achemine": 148,
+      "adrg_pays": 120,
+      "dir_civilite": 105,
+      "siteweb": 176,
+      "publiweb": 100,
+      "observation": 190,
+      "position": 100,
+      "maj_time": 148
+    },
+    "coloring": {
+      "scheme": "MEANING_AND_STATUS",
+      "individualColumns": [],
+      "valueColoringMode": "HASH"
+    },
+    "sorting": [],
+    "analysisColumnData": {},
+    "explorationSampling": {
+      "selection": {
+        "maxStoredBytes": 104857600,
+        "timeout": -1,
+        "filter": {
+          "distinct": false,
+          "enabled": false
+        },
+        "partitionSelectionMethod": "ALL",
+        "latestPartitionsN": 1,
+        "ordering": {
+          "enabled": false,
+          "rules": []
+        },
+        "samplingMethod": "HEAD_SEQUENTIAL",
+        "maxRecords": 10000,
+        "targetRatio": 0.02,
+        "withinFirstN": -1,
+        "maxReadUncompressedBytes": -1
+      },
+      "autoRefreshSample": false,
+      "_refreshTrigger": 0
+    },
+    "vizSampling": {
+      "selection": {
+        "useMemTable": false,
+        "filter": {
+          "distinct": false,
+          "enabled": false
+        },
+        "partitionSelectionMethod": "ALL",
+        "latestPartitionsN": 1,
+        "ordering": {
+          "enabled": false,
+          "rules": []
+        },
+        "samplingMethod": "FULL",
+        "maxRecords": -1,
+        "targetRatio": 0.02,
+        "withinFirstN": -1,
+        "maxReadUncompressedBytes": -1
+      },
+      "autoRefreshSample": false,
+      "_refreshTrigger": 0
+    },
+    "exploreUIParams": {
+      "autoRefresh": true
+    },
+    "globalSearchQuery": "",
+    "explorationFilters": [],
+    "previewMode": "ALL_ROWS"
+  },
+  "charts": []
+}
